@@ -1,0 +1,21 @@
+nohup: ignoring input
+━━━ Step 1: Enriching graphs with token_ids ━━━
+Loading tokenizer from /data/workzone/local_models/graphcodebert-base...
+Vocab size: 50265
+
+────────────────────────────────────────────────────────────
+Graph: data/graphs/graph_data_codenet_python.pt
+Pairs: data/processed/pairs_codenet_python.json
+  Already enriched (10386 graphs). Skipping.
+
+────────────────────────────────────────────────────────────
+Graph: data/graphs/graph_data_humanevalfix_python.pt
+Pairs: data/processed/pairs_humanevalfix_python.json
+  Already enriched (164 graphs). Skipping.
+
+Done!
+
+━━━ Step 2: Learnable embeddings + Full edges ━━━
+Device: cuda:1
+Loading: graph_data_codenet_python.pt... 10386 pairs
+Loading: graph_data_humanevalfix_python.pt... 

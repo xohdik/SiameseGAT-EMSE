@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pt
+*.log
+*.out
+nohup.out
+0
+data/
+outputs/
+scripts/outputs/
+scripts/*.log
