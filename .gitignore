@@ -9,3 +9,6 @@ data/
 outputs/
 scripts/outputs/
 scripts/*.log
+ablation_log.txt
+exec_log.txt
+*.txt.log
