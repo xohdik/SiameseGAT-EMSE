@@ -1,5 +1,4 @@
-**"What Drives Neural Pairwise Bug Verification?  
-A Multilingual Empirical Study of Evaluation Leakage, Representation Learning, and Graph Structure"**
+## What Drives Neural Pairwise Bug Verification? A Multilingual Empirical Study of Evaluation Leakage, Representation Learning, and Graph Structure
 
 This repository contains the replication package for a large-scale empirical
 study of neural pairwise bug verification.
