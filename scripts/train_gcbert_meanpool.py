@@ -59,7 +59,7 @@ class SiameseMLP(nn.Module):
         return self.mlp(feat)
 
 def get_groups(metadata):
-    groups = [m.get('pair_id','unk') for m in metadata]
+    groups = [(m.get('problem_id') or (m.get('pair_id','unk').split('_')[1] if len(m.get('pair_id','unk').split('_')) >= 3 else m.get('pair_id','unk'))) for m in metadata]
     uniq = sorted(set(groups))
     gmap = {g:i for i,g in enumerate(uniq)}
     return np.array([gmap[g] for g in groups])

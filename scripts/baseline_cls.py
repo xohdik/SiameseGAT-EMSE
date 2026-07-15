@@ -62,7 +62,16 @@ def load_lang_data(lang, graph_dir):
 
 
 def get_problem_groups(metadata):
-    groups = [m.get("pair_id", "unk") for m in metadata]
+    """Group by PROBLEM id (leakage-safe): 'codenet_p00000_s123' -> 'p00000'."""
+    def pid(m):
+        p = m.get("problem_id")
+        if p:
+            return p
+        parts = m.get("pair_id", "unk").split("_")
+        if len(parts) >= 3 and parts[1].startswith("p") and parts[1][1:].isdigit():
+            return parts[1]
+        return m.get("pair_id", "unk")
+    groups = [pid(m) for m in metadata]
     unique = sorted(set(groups))
     gmap = {g: i for i, g in enumerate(unique)}
     return np.array([gmap[g] for g in groups])

@@ -121,9 +121,9 @@ def main():
         m = evaluate(model, loader, criterion, device, has_spec=False)
         all_f1.append(m["f1_macro"])
         test_meta = [gd["metadata"][i] for i in test_idx]
-        for p, l, meta in zip(m["preds"], m["labels"], test_meta):
+        for p, pr, l, meta in zip(m["preds"], m["probs"], m["labels"], test_meta):
             records.append({"pair_id": meta.get("pair_id"), "dataset": meta.get("dataset"),
-                            "label": int(l), "pred": int(p)})
+                            "label": int(l), "pred": int(p), "prob": float(pr)})
         print(f"  fold {fold}: F1={m['f1_macro']:.4f}  (n={len(test_idx)})")
         del model; gc.collect()
         if device.startswith("cuda"): torch.cuda.empty_cache()
